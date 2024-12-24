@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .question { margin-bottom: 20px; }
+        .correct { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Mock Test</h1>
+    <form id="test-form">
+
+    <div class="question">
+        <p><strong>1. Q.1Which of the following terms will replace the question mark (?) in the given series?</strong></p>
+        
+        <label>
+            <input type="radio" name="q0" value="0">
+            Option A (Correct Answer) for Question 1
+        </label><br>
+        <label>
+            <input type="radio" name="q0" value="1">
+            Option B for Question 1
+        </label><br>
+        <label>
+            <input type="radio" name="q0" value="2">
+            Option C for Question 1
+        </label><br>
+        <label>
+            <input type="radio" name="q0" value="3">
+            Option D for Question 1
+        </label><br>
+    </div>
+
+    <div class="question">
+        <p><strong>2. which of the following is 8 related, following the same logic?</strong></p>
+        
+        <label>
+            <input type="radio" name="q1" value="0">
+            Option A (Correct Answer) for Question 2
+        </label><br>
+        <label>
+            <input type="radio" name="q1" value="1">
+            Option B for Question 2
+        </label><br>
+        <label>
+            <input type="radio" name="q1" value="2">
+            Option C for Question 2
+        </label><br>
+        <label>
+            <input type="radio" name="q1" value="3">
+            Option D for Question 2
+        </label><br>
+    </div>
+
+    <div class="question">
+        <p><strong>3. interchanged and ‘–’ and ‘÷’ are interchanged?</strong></p>
+        
+        <label>
+            <input type="radio" name="q2" value="0">
+            Option A (Correct Answer) for Question 3
+        </label><br>
+        <label>
+            <input type="radio" name="q2" value="1">
+            Option B for Question 3
+        </label><br>
+        <label>
+            <input type="radio" name="q2" value="2">
+            Option C for Question 3
+        </label><br>
+        <label>
+            <input type="radio" name="q2" value="3">
+            Option D for Question 3
+        </label><br>
+    </div>
+
+    <div class="question">
+        <p><strong>4. 16 − 2 × 42 + 13 ÷ 12 = ?</strong></p>
+        
+        <label>
+            <input type="radio" name="q3" value="0">
+            Option A (Correct Answer) for Question 4
+        </label><br>
+        <label>
+            <input type="radio" name="q3" value="1">
+            Option B for Question 4
+        </label><br>
+        <label>
+            <input type="radio" name="q3" value="2">
+            Option C for Question 4
+        </label><br>
+        <label>
+            <input type="radio" name="q3" value="3">
+            Option D for Question 4
+        </label><br>
+    </div>
+
+    <div class="question">
+        <p><strong>5. formed, what would be the word on the opposite side of ‘Ball’?</strong></p>
+        
+        <label>
+            <input type="radio" name="q4" value="0">
+            Option A (Correct Answer) for Question 5
+        </label><br>
+        <label>
+            <input type="radio" name="q4" value="1">
+            Option B for Question 5
+        </label><br>
+        <label>
+            <input type="radio" name="q4" value="2">
+            Option C for Question 5
+        </label><br>
+        <label>
+            <input type="radio" name="q4" value="3">
+            Option D for Question 5
+        </label><br>
+    </div>
+
+        <button type="button" onclick="evaluate()">Submit</button>
+    </form>
+    <script>
+        const answers = [0,0,0,0,0]; // Correct answers
+
+        function evaluate() {
+            const form = document.getElementById('test-form');
+            const inputs = form.querySelectorAll('input[type="radio"]:checked');
+            const results = document.createElement('div');
+            results.innerHTML = '<h2>Results:</h2>';
+
+            if (inputs.length === answers.length) {
+                inputs.forEach((input, index) => {
+                    const parent = input.parentNode;
+                    if (parseInt(input.value) === answers[index]) {
+                        parent.innerHTML += ' <span class="correct">✔</span>';
+                    } else {
+                        parent.innerHTML += ' <span style="color:red;">✘</span>';
+                    }
+                });
+                results.innerHTML += '<p>You completed the test!</p>';
+            } else {
+                results.innerHTML += '<p>Please answer all questions.</p>';
+            }
+
+            form.appendChild(results);
+        }
+    </script>
+</body>
+</html>
